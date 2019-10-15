@@ -12,7 +12,7 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
 - Neologism dictionary for MeCab (mecab-ipadic-neologd) 最新版
 - Mecab NAIST JDIC 0.6.3b-20111013
 - CRF++-0.58
-- CaboCha (version 0.69)
+- CaboCha (version 0.69) ※CaboChaはPythonからは使用できるように設定してありません．
 
 # 使い方
 ## 準備 (初回のみ)
