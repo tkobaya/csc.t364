@@ -70,6 +70,9 @@ RUN set -x && \
     ln -s /usr/lib/x86_64-linux-gnu/mecab/dic/naist-jdic && \
     ln -s /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd 
 
+RUN set -x && \
+    apt-get install fonts-noto-cjk
+
 USER jovyan
 WORKDIR /home/jovyan/work
 
