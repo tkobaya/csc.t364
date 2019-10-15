@@ -1,0 +1,17 @@
+﻿version: "2"
+services:
+  jupyterlab:
+    build:
+      context: .
+    user: root
+    ports:
+      - "8888:8888"
+    volumes:
+#      - "/home/tkobaya/bda-work:/home/username/work" # for Mac
+      - "/C/Users/tkobaya/bda-work:/home/jovyan/work" # for Windows
+    environment:
+      GRANT_SUDO: "yes"
+    command: start.sh jupyter lab
+
+## docker-compouse -d up で起動
+## docker-compouse exec jupyterlab bash で jupyterlab コンテナにログイン
