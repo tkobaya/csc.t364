@@ -92,3 +92,5 @@ jupyterlab_1  |      or http://127.0.0.1:8888/?token=<token>
 /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
 /usr/lib/x86_64-linux-gnu/mecab/dic/naist-jdic
 ````
+# Known Issue
+- matplotlib で日本語が表示できません．
