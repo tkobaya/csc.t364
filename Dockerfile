@@ -64,6 +64,11 @@ RUN set -x && \
     ./configure --with-mecab-config=`which mecab-config` --with-charset=utf8 && \
     make && make install && ldconfig
 
+RUN set -x && \
+    mkdir -p /usr/local/lib/mecab/dic && \
+    cd /usr/local/lib/mecab/dic && \
+    ln -s /usr/lib/x86_64-linux-gnu/mecab/dic/naist-jdic && \
+    ln -s /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd 
 
 USER jovyan
 WORKDIR /home/jovyan/work
