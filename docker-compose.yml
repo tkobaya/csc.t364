@@ -7,7 +7,7 @@ services:
     ports:
       - "8888:8888"
     volumes:
-#      - "/home/tkobaya/bda-work:/home/username/work" # for Mac
+#      - "/Users/tkobaya/bda-work:/home/username/work" # for Mac
       - "/C/Users/tkobaya/bda-work:/home/jovyan/work" # for Windows
     environment:
       GRANT_SUDO: "yes"
