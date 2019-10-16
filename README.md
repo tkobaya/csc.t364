@@ -93,4 +93,10 @@ jupyterlab_1  |      or http://127.0.0.1:8888/?token=<token>
 /usr/lib/x86_64-linux-gnu/mecab/dic/naist-jdic
 ````
 # Known Issue
-- matplotlib で日本語が表示できません．
+- matplotlib で日本語が表示できません． 
+  - 以下のpythonコードをjupyterlab等で実行することで、フォントに関するキャッシュを再構築することで日本語表示ができるようになります
+  - jupyterlabの場合にはKernelの再起動が必要です。
+```` 
+import matplotlib
+matplotlib.font_manager._rebuild()
+````
