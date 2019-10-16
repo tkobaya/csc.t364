@@ -12,7 +12,7 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
 - Neologism dictionary for MeCab (mecab-ipadic-neologd) 最新版
 - Mecab NAIST JDIC 0.6.3b-20111013
 - CRF++-0.58
-- CaboCha (version 0.69) ※CaboChaはPythonからは使用できるように設定してありません．
+- CaboCha (version 0.69) + python module for CaboCha 
 
 # 使い方
 ## 準備 (初回のみ)
@@ -93,10 +93,18 @@ jupyterlab_1  |      or http://127.0.0.1:8888/?token=<token>
 /usr/lib/x86_64-linux-gnu/mecab/dic/naist-jdic
 ````
 # Known Issue
-- matplotlib で日本語が表示できません． 
-  - 以下のpythonコードをjupyterlab等で実行することで、フォントに関するキャッシュを再構築することで日本語表示ができるようになります
-  - jupyterlabの場合にはKernelの再起動が必要です。
+- matplotlib で日本語が表示できない場合があります．
+  - 以下のpythonコードをjupyterlab等で実行することで、フォントに関するキャッシュを再構築することで日本語表示ができるようになります.
+  - jupyterlabの場合にはKernelの再起動が必要です.
 ```` 
 import matplotlib
 matplotlib.font_manager._rebuild()
 ````
+# Release Note
+- 2019-10-16
+  - pythonから CaboCha を利用するためのモジュールもインストールするようになりました．Docker image をビルドする際にテスト実行しています．
+  - matplotlib で日本語が豆腐になる問題を部分的に解決しました．Noto フォントを入れて ````font_manager._rebuild()```` を読んでキャッシュをリビルドしていますが，初回実行ではうまく読み込まれません．
+  - MeCab用の辞書を，環境構築資料と同じパスで参照できるようにしました．
+- 2019-10-15
+  - 公開開始
+
