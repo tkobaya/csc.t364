@@ -62,7 +62,15 @@ RUN set -x && \
     tar jxf cabocha-0.69.tar.bz2 && \ 
     cd cabocha-0.69 && \
     ./configure --with-mecab-config=`which mecab-config` --with-charset=utf8 && \
-    make && make install && ldconfig
+    make && make install && ldconfig 
+
+RUN set -x && \ 
+    : Install python module for CaboCha && \
+    cd cabocha-0.69/python && \
+    python ./setup.py install && \
+    wget https://gist.githubusercontent.com/nosada/9530569/raw/f1d87329d85d592751c7caca4d71a22fffd318ff/test.patch && \
+    patch  < test.patch && \ 
+    python ./test.py 
 
 RUN set -x && \
     mkdir -p /usr/local/lib/mecab/dic && \
@@ -76,6 +84,10 @@ RUN set -x && \
 USER jovyan
 WORKDIR /home/jovyan/work
 
+RUN set -x && \
+    : update font cache && \
+    mv /home/jovyan/.cache/matplotlib/fontlist-v310.json{,-} ; exit 0 && \
+    echo "import matplotlib.font_manager as fm; fm._rebuild()" | /opt/conda/bin/python
 RUN set -x && \ 
     : === mecab -D === && \ 
     mecab -D; exit 0 
@@ -85,7 +97,6 @@ RUN set -x && \
 RUN set -x && \ 
     : === Test execution of CaboCha === && \ 
     echo "東工大は良いところ" | cabocha
-
 
 ## ブラウザを開いてhttp://localhost:10000/?token=<token>にアクセスする．
 ## <token>の値はdocker runした時にコンソールに表示されるものを使う．
