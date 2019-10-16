@@ -83,6 +83,8 @@ jupyterlab_1  |      or http://127.0.0.1:8888/?token=<token>
 - コンテナにログインして直接pythonやMeCab，CaboChaなどを実行したい場合は，
   ````% docker-compouse exec jupyterlab bash````
   で jupyterlab コンテナにログインすることができます．
+-- 配布している ````docker-compose.yml```` では root でログインするようになっています．
+-- pythonコマンドは /opt/conda/bin/python が実行されるように path が設定されています．/usr/bin/python は version 2.7 のままです．shebang (スクリプトファイルの先頭行)を書く際には気を付けてください．
   
 ## Memo
 - mecabrc の場所は ````/etc/mecabrc```` です．
