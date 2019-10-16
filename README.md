@@ -86,7 +86,7 @@ jupyterlab_1  |      or http://127.0.0.1:8888/?token=<token>
   
 ## Memo
 - mecabrc の場所は ````/etc/mecabrc```` です．
-- 各種MeCab用の辞書は以下のように，`配布資料と異なるパス`にインストールされていますので注意してください．(mecabrcにコメントアウトして記載してあります.)
+- 各種MeCab用の辞書は以下のように，`配布資料と異なるパス`にインストールされていますので注意してください．(mecabrcにコメントアウトして記載してあります) → 現在は配布資料と同じパスで参照できるようにリンクを貼ってあるので講義資料通りの記述でも動作します
 ````
 /usr/lib/mecab/dic/ipadic-utf8
 /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
