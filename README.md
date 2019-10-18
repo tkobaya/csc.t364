@@ -129,6 +129,8 @@ import matplotlib
 matplotlib.font_manager._rebuild()
 ````
 # Release Note
+- 2019-10-18
+  - GraphViz と pythonからGraphViz を呼び出すモジュール graphviz 及び dtreeviz をインストールするようになりました．
 - 2019-10-16 (rel-1.0)
   - pythonから CaboCha を利用するためのモジュールもインストールするようになりました．Docker image をビルドする際にテスト実行しています．
   - matplotlib で日本語が豆腐になる問題を部分的に解決しました．Noto フォントを入れて ````font_manager._rebuild()```` を読んでキャッシュをリビルドしていますが，初回実行ではうまく読み込まれません．
