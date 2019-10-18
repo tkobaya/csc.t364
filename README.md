@@ -1,6 +1,6 @@
 # "システム設計演習" 演習環境用 Docker 
 
-このリポジトリは CSC.T374 Workshop on System Design の2019年度ビッグデータ解析テーマの演習環境をDockerで構築するためのファイル群です．
+このリポジトリは CSC.T364 Workshop on System Design の2019年度ビッグデータ解析テーマの演習環境をDockerで構築するためのファイル群です．
 jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebook) を元に "1001_テキストマイニング環境構築.pdf" で指示のあったソフトウェアを使えるようにしてあります．
 
 2019/10/17の時点では，以下をインストールした Ubuntu 18.04.2 LTS のイメージが構築されます．
