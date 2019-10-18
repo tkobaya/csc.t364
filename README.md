@@ -32,8 +32,8 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
     ````- "/C/Users/tkobaya/bda-work:/home/jovyan/work" ```` 
     と変更します．
 
-- cloneしたフォルダで以下を実行
-  - ````% docker-compose up````
+- コンテナイメージの構築
+  - コマンドプロンプト(Windows)またはConsole(Mac)を開き cloneしたフォルダで ````% docker-compose build```` と実行します．
   - 注意：初回に 10GB程度のファイルがダウンロードされます．インターネットへの接続環境が良いところで作業することを勧めます．
   - 初回のみコンテナイメージ作成で各種ファイルのダウンロードに加え，Mecab, Ipadic, CaboCha等のコンパイルがあるため大分時間がかかります．気長に待ちましょう
 - コンテナイメージが完成すると，mecab, cabocha を実行した結果が表示されます．講義資料と同じ出力になっていない場合は小林かTAに相談してください．
@@ -59,7 +59,11 @@ EOS
 Successfully built 96ade3c5040a
 Successfully tagged bda2019_jupyterlab:latest
 ````
-- コンテナイメージが完成した後にコンテナが起動し以下のようなメッセージが表示されます
+- 上記の表示がされない場合はコンテナ構築に失敗しています．小林またはTAに相談してください．
+ 
+## 起動・終了方法
+- コマンドプロンプト(Windows)またはConsole(Mac)を開き cloneしたフォルダで `% docker-compose up` と実行してください．
+  - コンテナが起動し以下のようなメッセージが表示されます
 ````
 jupyterlab_1  | [I 13:47:47.412 LabApp] Writing notebook server cookie secret to /home/jovyan/.local/share/jupyter/runtime/notebook_cookie_secret
 jupyterlab_1  | [I 13:47:47.751 LabApp] JupyterLab extension loaded from /opt/conda/lib/python3.7/site-packages/jupyterlab
@@ -80,27 +84,26 @@ jupyterlab_1  |      or http://127.0.0.1:8888/?token=<token>
 - ブラウザを開いて 上記で表示された ````http://localhost:8888/?token=<token>```` にアクセスすると，JupyterLab が使用できます
   - ※ ````<token>````の部分は各自の環境で異なります．ブックマークしておくと便利です．
 - 終了するには `Ctrl + C` で ````docker-compose```` を終了してください．
- 
-## 起動・終了方法
-- コマンドプロンプト(Windows)またはConsole(Mac)を開き cloneしたフォルダで `% docker-compose up` と実行してください．終了する際は Ctrl + C でプロセスを停止してください．
-- `% docker-compose up -d` と -d オプションをつけると，バッググランドで実行されます．
-   - バックグランドで実行した場合の終了には `% docker-compose kill` と実行してください．
-   - 終了せずに複数回 ````% docker-compose up -d ```` をすると複数のインスタンスが起動したままとなり，ポートを確保できないなどの警告がでます．
-   ````% docker-compose ps ```` で起動しているインスタンスがないか確認し不要なインスタンスは kill してください．
-- コンテナにログインして直接pythonやMeCab，CaboChaなどを実行したい場合は，
+- コンテナにログインして直接pythonやMeCab，CaboChaなどを実行したい場合は，別のコマンドプロンプト(Windows)またはConsole(Mac)を開き
   ````% docker-compouse exec jupyterlab bash````
-  で jupyterlab コンテナにログインすることができます．
+  を実行することで jupyterlab コンテナにログインすることができます．
   - 配布している ````docker-compose.yml```` では root でログインするようになっており sudo コマンドなど管理者権限が必要な操作も可能にしてあります．
   - pythonコマンドは /opt/conda/bin/python が実行されるように path が設定されています．/usr/bin/python は version 2.7 のままです．shebang (スクリプトファイルの先頭行)を書く際には気を付けてください．
 
-## Dockerファイルに更新があった場合のイメージ再構築
+## Dockerイメージの更新
 Dockerファイルにソフトウェアの更新，プログラムの追加などの操作があり，イメージを再構築する必要がある場合は以下のコマンドを実行してください．
 Dockerファイルに変更があった箇所以降の構築コマンドが再実行されます，(増分ビルドなので初回よりは短い時間で構築が終わります．)
 ````
 % docker-compose build
 ````
+# TIPS
+## TIPS：バッググランド実行
+- `% docker-compose up -d` と -d オプションをつけると，バッググランドで実行されます．
+   - バックグランドで実行した場合の終了には `% docker-compose kill` と実行してください．
+   - 終了せずに複数回 ````% docker-compose up -d ```` をすると複数のインスタンスが起動したままとなり，ポートを確保できないなどの警告がでます．
+   ````% docker-compose ps ```` で起動しているインスタンスがないか確認し不要なインスタンスは kill してください．
 
-## Memo
+## TIPS: CaboChaの辞書 変更
 - mecabrc の場所は ````/etc/mecabrc```` です．
 - 各種MeCab用の辞書は以下のように，`配布資料と異なるパス`にインストールされていますので注意してください．(mecabrcにコメントアウトして記載してあります) → 現在は配布資料と同じパスで参照できるようにリンクを貼ってあるので講義資料通りの記述でも動作します
 ````
