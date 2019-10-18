@@ -20,6 +20,8 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
 ## 準備 (初回のみ)
 
 - Dockerをインストールする
+  - Windows 10 Home を使っている人は以下などを参照してください．
+    - https://qiita.com/idani/items/fb7681d79eeb48c05144
   - https://www.docker.com/get-started から Docker Desktopをダウンロード (要ユーザ登録)
   - 日本語化プロジェクトによる和訳 http://docs.docker.jp/engine/installation/toc.html
 - このリポジトリを適当なフォルダに clone する
