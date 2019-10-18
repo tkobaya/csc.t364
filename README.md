@@ -81,7 +81,8 @@ jupyterlab_1  |      or http://127.0.0.1:8888/?token=<token>
   - ※ ````<token>````の部分は各自の環境で異なります．ブックマークしておくと便利です．
 - 終了するには `Ctrl + C` で ````docker-compose```` を終了してください．
  
-## 起動方法
+## 起動・終了方法
+- コマンドプロンプト(Windows)またはConsole(Mac)を開き cloneしたフォルダで `% docker-compose up` と実行してください．終了する際は Ctrl + C でプロセスを停止してください．
 - `% docker-compose up -d` と -d オプションをつけると，バッググランドで実行されます．
    - バックグランドで実行した場合の終了には `% docker-compose kill` と実行してください．
    - 終了せずに複数回 ````% docker-compose up -d ```` をすると複数のインスタンスが起動したままとなり，ポートを確保できないなどの警告がでます．
@@ -89,7 +90,7 @@ jupyterlab_1  |      or http://127.0.0.1:8888/?token=<token>
 - コンテナにログインして直接pythonやMeCab，CaboChaなどを実行したい場合は，
   ````% docker-compouse exec jupyterlab bash````
   で jupyterlab コンテナにログインすることができます．
-  - 配布している ````docker-compose.yml```` では root でログインするようになっています．
+  - 配布している ````docker-compose.yml```` では root でログインするようになっており sudo コマンドなど管理者権限が必要な操作も可能にしてあります．
   - pythonコマンドは /opt/conda/bin/python が実行されるように path が設定されています．/usr/bin/python は version 2.7 のままです．shebang (スクリプトファイルの先頭行)を書く際には気を付けてください．
 
 ## Dockerファイルに更新があった場合のイメージ再構築
@@ -107,7 +108,7 @@ Dockerファイルに変更があった箇所以降の構築コマンドが再�
 /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
 /usr/lib/x86_64-linux-gnu/mecab/dic/naist-jdic
 ````
-# Known Issue
+# Known Issues
 - matplotlib で日本語が表示できない場合があります．
   - 以下のpythonコードをjupyterlab等で実行することで、フォントに関するキャッシュを再構築することで日本語表示ができるようになります.
   - jupyterlabの場合にはKernelの再起動が必要です.
@@ -116,7 +117,7 @@ import matplotlib
 matplotlib.font_manager._rebuild()
 ````
 # Release Note
-- 2019-10-16
+- 2019-10-16 (rel-1.0)
   - pythonから CaboCha を利用するためのモジュールもインストールするようになりました．Docker image をビルドする際にテスト実行しています．
   - matplotlib で日本語が豆腐になる問題を部分的に解決しました．Noto フォントを入れて ````font_manager._rebuild()```` を読んでキャッシュをリビルドしていますが，初回実行ではうまく読み込まれません．
   - MeCab用の辞書を，環境構築資料と同じパスで参照できるようにしました．
