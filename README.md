@@ -3,18 +3,23 @@
 このリポジトリは CSC.T374 Workshop on System Design の2019年度ビッグデータ解析テーマの演習環境をDockerで構築するためのファイル群です．
 jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebook) を元に "1001_テキストマイニング環境構築.pdf" で指示のあったソフトウェアを使えるようにしてあります．
 
-2019/10/17の時点では，以下をインストールした Ubuntu 18.04.2 LTS のイメージが構築されます．
+2019/10/18の時点では，以下をインストールした Ubuntu 18.04.2 LTS のイメージが構築されます．
 - Baseコンテナ jupyter/datascience-notebook
   - Digest: sha256-dc2b7aac066f101107128d825d51b56cb1abd5bcbbc2b5f2ec0a03c3114f75e6
   - Jupyter 4.4.0, JupyterLab 1.1.3 
   - python 3.7.3
-- natto-py (version 0.9.0, pipでinstall)
 - MeCab (version 0.996, UTF-8)
 - MeCab ipadic (utf8)
 - Neologism dictionary for MeCab (mecab-ipadic-neologd) 最新版
 - Mecab NAIST JDIC 0.6.3b-20111013
 - CRF++-0.58
-- CaboCha (version 0.69) + python module for CaboCha 
+- CaboCha (version 0.69) + python module for CaboCha
+- GraphViz (version 2.40.1-2) 
+- python module
+  - natto-py (version 0.9.0, pipでinstall)
+  - dtreeviz (version 0.6, pipでinstall)
+  - graphviz (version 0.13, pipでinstall)
+
 
 # 使い方
 ## 準備 (初回のみ)
