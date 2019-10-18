@@ -26,8 +26,12 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
 - ````docker-compose.yml```` を編集する
   - ````volumes:````の次の行を Mac/Windowsの場合のいずれかをコメントアウトし，
     自分のユーザ名に書き換えてください．
-  - Dockerコンテナ内の /home/jovyan/work というディレクトリを，Dockerが実行されている計算機のどのディレクトリにマップするかを設定します．
-    JupyterLabからアクセスするファイルの置き場として使います．
+  - Dockerコンテナ内の /home/jovyan/work というディレクトリを，ホスト(Dockerが実行されている計算機)のどのディレクトリにマップするかを設定します．
+    JupyterLabからアクセスするファイルの置き場として使います．コンテナ側のパス /home/jovyan/work は変更しないでください．
+  - (例) ホスト側(Windows) の ````C:\Users\tkobaya\bda-work```` を コンテナ側の ````/home/jovyan/work```` と見せたい場合は
+    ````- "/C/Users/tkobaya/bda-work:/home/jovyan/work" ```` 
+    と変更します．
+
 - cloneしたフォルダで以下を実行
   - ````% docker-compose up````
   - 注意：初回に 10GB程度のファイルがダウンロードされます．インターネットへの接続環境が良いところで作業することを勧めます．
