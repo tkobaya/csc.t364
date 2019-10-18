@@ -1,6 +1,6 @@
 # "システム設計演習" 演習環境用 Docker 
 
-このリポジトリは CSC.T374 Workshop on System Design の2019年度ビッグデータ解析テーマの演習環境をDockerで構築するためのファイル群です．
+このリポジトリは CSC.T364 Workshop on System Design の2019年度ビッグデータ解析テーマの演習環境をDockerで構築するためのファイル群です．
 jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebook) を元に "1001_テキストマイニング環境構築.pdf" で指示のあったソフトウェアを使えるようにしてあります．
 
 2019/10/18の時点では，以下をインストールした Ubuntu 18.04.2 LTS のイメージが構築されます．
@@ -25,6 +25,8 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
 ## 準備 (初回のみ)
 
 - Dockerをインストールする
+  - Windows 10 Home を使っている人は以下などを参照してください．
+    - https://qiita.com/idani/items/fb7681d79eeb48c05144
   - https://www.docker.com/get-started から Docker Desktopをダウンロード (要ユーザ登録)
   - 日本語化プロジェクトによる和訳 http://docs.docker.jp/engine/installation/toc.html
 - このリポジトリを適当なフォルダに clone する
@@ -99,6 +101,7 @@ jupyterlab_1  |      or http://127.0.0.1:8888/?token=<token>
 Dockerファイルにソフトウェアの更新，プログラムの追加などの変更があり，イメージを更新(再構築)する必要がある場合は以下のコマンドを実行してください．
 Dockerファイルに変更があった箇所以降の構築コマンドが再実行されます，(増分ビルドなので初回よりは短い時間で構築が終わります．)
 ````
+% git pull 
 % docker-compose build
 ````
 # TIPS
