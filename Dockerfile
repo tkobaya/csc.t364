@@ -88,6 +88,25 @@ RUN set -x && \
     : update font cache && \
     mv /home/jovyan/.cache/matplotlib/fontlist-v310.json{,-} ; exit 0 && \
     echo "import matplotlib.font_manager as fm; fm._rebuild()" | /opt/conda/bin/python
+
+## rel-1.1
+USER root
+WORKDIR /var/tmp
+
+RUN set -x && \
+    apt-get -y install graphviz
+
+USER jovyan
+WORKDIR /home/jovyan/work
+
+RUN set -x && \
+    pip install dtreeviz
+
+## 
+
+USER jovyan
+WORKDIR /home/jovyan/work
+
 RUN set -x && \ 
     : === mecab -D === && \ 
     mecab -D; exit 0 
