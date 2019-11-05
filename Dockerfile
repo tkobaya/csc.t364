@@ -100,7 +100,8 @@ USER jovyan
 WORKDIR /home/jovyan/work
 
 RUN set -x && \
-    pip install dtreeviz
+    pip install dtreeviz && \
+    pip install gensim
 
 ## 
 
