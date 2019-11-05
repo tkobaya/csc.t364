@@ -19,7 +19,7 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
   - natto-py (version 0.9.0, pipでinstall)
   - dtreeviz (version 0.6, pipでinstall)
   - graphviz (version 0.13, pipでinstall)
-
+  - gensim (version 3.8.1, pipでinstall)
 
 # 使い方
 ## 準備 (初回のみ)
@@ -129,6 +129,8 @@ import matplotlib
 matplotlib.font_manager._rebuild()
 ````
 # Release Note
+- 2019-11-06
+  - 11/1の講義資料で利用する gensim をインストールするようになりました．
 - 2019-10-18
   - GraphViz と pythonからGraphViz を呼び出すモジュール graphviz 及び dtreeviz をインストールするようになりました．
 - 2019-10-16 (rel-1.0)
