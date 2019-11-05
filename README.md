@@ -20,6 +20,7 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
   - dtreeviz (version 0.6, pipでinstall)
   - graphviz (version 0.13, pipでinstall)
   - gensim (version 3.8.1, pipでinstall)
+- ※ gephi はGUIツールのためインストールするようになっていません．各自 https://gephi.org/users/download/ から利用しているOS用のものをダウンロード・インストールして，Dockerコンテナ側で生成した gexf ファイルを読み込んで確認するようにしてください．
 
 # 使い方
 ## 準備 (初回のみ)
