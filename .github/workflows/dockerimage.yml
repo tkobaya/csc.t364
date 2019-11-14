@@ -13,6 +13,7 @@ jobs:
     - name: Build and Register the Docker image
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: myDocker/repository
-        username: ${{ secrets.DOCKER_USERNAME }}
+        name: docker.pkg.github.com/tkobaya/csc.t364/csc_t364_jupyterlab
+        username: tkobaya
         password: ${{ secrets.DOCKER_PASSWORD }}
+        registry: docker.pkg.github.com
