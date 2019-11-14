@@ -38,7 +38,13 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
   - (例) ホスト側(Windows) の ````C:\Users\tkobaya\bda-work```` を コンテナ側の ````/home/jovyan/work```` と見せたい場合は
     ````- "/C/Users/tkobaya/bda-work:/home/jovyan/work" ```` 
     と変更します．
-### 構築済みコンテナイメージを使う準備をする．
+  - コンテナイメージを用意する．*以下の2つの方法* を用意しています．
+    - A) 構築済みコンテナを使う : 〇 構築にかかるトラブル回避・帯域＆時間削減ができる．× GitHub でアクセストークンを作る必要がある
+    - B) 自分で Dockerfile から構築する : 〇自分でコンテナを改良できる．× 構築に時間がかかる (それほど手間ではないはずです) 
+    
+### A) 構築済みコンテナイメージを使う準備をする
+※ コンテナイメージを自分で構築する場合には，こちらの作業は不要です．
+
 docker が GitHubのパッケージレジストリにアクセスできるように設定が必要です．
 (参考：https://help.github.com/ja/github/managing-packages-with-github-packages/configuring-docker-for-use-with-github-packages)
 以下の手順で Docker が docker.pkg.github.com にアクセスするための認証情報を設定します．
@@ -59,8 +65,8 @@ $ docker login docker.pkg.github.com -u <USERNAME> -p <TOKEN>
 $ docker pull docker.pkg.github.com/tkobaya/csc.t364/csc_t364_jupyterlab:latest
 ````
 
-### コンテナイメージを構築する
-※ 構築済みコンテナイメージを使う場合には，以下の コンテナイメージを構築する は不要です．
+### B)コンテナイメージを構築する
+※ 構築済みコンテナイメージを使う場合には，こちらの作業は不要です．
 - コンテナイメージを構築する
   - コマンドプロンプト(Windows)またはConsole(Mac)を開き cloneしたフォルダで ````% docker-compose build```` と実行します．
   - 注意：初回に 10GB程度のファイルがダウンロードされます．インターネットへの接続環境が良いところで作業することを勧めます．
