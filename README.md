@@ -20,16 +20,16 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
   - dtreeviz (version 0.6, pipでinstall)
   - graphviz (version 0.13, pipでinstall)
   - gensim (version 3.8.1, pipでinstall)
-- ※ gephi はGUIツールのためインストールするようになっていません．各自 https://gephi.org/users/download/ から利用しているOS用のものをダウンロード・インストールして，Dockerコンテナ側で生成した gexf ファイルを読み込んで確認するようにしてください．
+- ※ gephi はGUIツールのためインストールするようになっていません．各自 https://gephi.org/users/download/ から利用しているホストOS用のものをダウンロード・インストールして，Dockerコンテナ側で生成した gexf ファイルを読み込んで確認するようにしてください．
 
 # 使い方
 ## 準備 (初回のみ)
 
 - Dockerをインストールする
-  - Windows 10 Home を使っている人は以下などを参照してください．
+  - Windowsの場合，仮想環境を利用できる必要があります．Windows 10 Pro, Education を使っている場合はHyper-V が使えるので問題ありませんが，Windows 10 Home を使っている人は以下などを参照し仮想環境を用意してください．
     - https://qiita.com/idani/items/fb7681d79eeb48c05144
   - https://www.docker.com/get-started から Docker Desktopをダウンロード (要ユーザ登録)
-  - 日本語化プロジェクトによる和訳 http://docs.docker.jp/engine/installation/toc.html
+    - 日本語化プロジェクトによる和訳 http://docs.docker.jp/engine/installation/toc.html
 - このリポジトリを適当なフォルダに clone する
 - ````docker-compose.yml```` を編集する
   - ````volumes:````の次の行を Mac/Windowsの場合のいずれかをコメントアウトし，
@@ -40,7 +40,7 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
     ````- "/C/Users/tkobaya/bda-work:/home/jovyan/work" ```` 
     と変更します．
 
-- コンテナイメージの構築
+- コンテナイメージを構築する
   - コマンドプロンプト(Windows)またはConsole(Mac)を開き cloneしたフォルダで ````% docker-compose build```` と実行します．
   - 注意：初回に 10GB程度のファイルがダウンロードされます．インターネットへの接続環境が良いところで作業することを勧めます．
   - 初回のみコンテナイメージ作成で各種ファイルのダウンロードに加え，Mecab, Ipadic, CaboCha等のコンパイルがあるため大分時間がかかります．気長に待ちましょう
