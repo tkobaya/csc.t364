@@ -42,7 +42,7 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
     - A) 構築済みコンテナを使う : 〇 構築にかかるトラブル回避・帯域＆時間削減ができる．× GitHub でアクセストークンを作る必要がある
     - B) 自分で Dockerfile から構築する : 〇自分でコンテナを改良できる．× 構築に時間がかかる (それほど手間ではないはずです) 
     
-### A) 構築済みコンテナイメージを使う準備をする
+### A) 構築済みコンテナイメージを使う準備をする (Defaultではこちら)
 ※ コンテナイメージを自分で構築する場合には，こちらの作業は不要です．
 
 docker が GitHubのパッケージレジストリにアクセスできるように設定が必要です．
@@ -157,14 +157,9 @@ import matplotlib
 matplotlib.font_manager._rebuild()
 ````
 # Release Note
-- 2019-11-14 
-  - GitHub Actions で イメージの自動ビルドを始めました．docker.pkg.github.com へログインしている状態なら
-以下のコマンドでビルド済みコンテナイメージをダウンロードできます．
-````
-docker pull docker.pkg.github.com/tkobaya/csc.t364/csc_t364_jupyterlab:latest
-````
-
-- 2019-11-06
+- 2019-11-14 (rel-1.2)
+  - GitHub Actions で イメージの自動ビルドを始めたので，初期設定ではそちらを使用することに変更しました．
+- 2019-11-06 (rel-1.1)
   - 11/1の講義資料で利用する gensim をインストールするようになりました．
 - 2019-10-18
   - GraphViz と pythonからGraphViz を呼び出すモジュール graphviz 及び dtreeviz をインストールするようになりました．
