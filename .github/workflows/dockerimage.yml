@@ -15,5 +15,5 @@ jobs:
       with:
         name: docker.pkg.github.com/tkobaya/csc.t364/csc_t364_jupyterlab
         username: tkobaya
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        password: ${{secrets.GITHUB_TOKEN}}
         registry: docker.pkg.github.com
