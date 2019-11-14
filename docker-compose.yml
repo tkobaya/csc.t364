@@ -1,8 +1,13 @@
 ﻿version: "2"
 services:
   jupyterlab:
-    build:
-      context: .
+    ## 構築済みコンテナを使う場合 (default)
+    image: docker.pkg.github.com/tkobaya/csc.t364/csc_t364_jupyterlab:latest
+    
+    ## 手元でコンテナを構築する場合は以下2行のコメントを外す
+#    build:
+#      context: .
+
     user: root
     ports:
       - "8888:8888"
