@@ -130,6 +130,13 @@ import matplotlib
 matplotlib.font_manager._rebuild()
 ````
 # Release Note
+- 2019-11-14 
+  - GitHub Actions で イメージの自動ビルドを始めました．docker.pkg.github.com へログインしている状態なら
+以下のコマンドでビルド済みコンテナイメージをダウンロードできます．
+````
+docker pull docker.pkg.github.com/tkobaya/csc.t364/csc_t364_jupyterlab:latest
+````
+
 - 2019-11-06
   - 11/1の講義資料で利用する gensim をインストールするようになりました．
 - 2019-10-18
