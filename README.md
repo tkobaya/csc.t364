@@ -25,6 +25,8 @@ jupyter/datascience-notebook(https://hub.docker.com/r/jupyter/datascience-notebo
 # 使い方
 ## 準備 (初回のみ)
 - Dockerをインストールする
+  - (2020/Mar/17 追記) 2020年3月にWindows Subsystem for Linux 2 (WSL-2) 用のDocker Desktopがリリースされました．Hyper-V
+   を使わないので，Windows 10 Home でも使えます．https://www.docker.com/blog/docker-desktop-for-windows-home-is-here/ 
   - Windowsの場合，仮想環境を利用できる必要があります．Windows 10 Pro, Education を使っている場合はHyper-V が使えるので問題ありませんが，Windows 10 Home を使っている人は以下などを参照し仮想環境を用意してください．
     - https://qiita.com/idani/items/fb7681d79eeb48c05144
   - https://www.docker.com/get-started から Docker Desktopをダウンロード (要ユーザ登録)
