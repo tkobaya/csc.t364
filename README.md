@@ -122,7 +122,7 @@ jupyterlab_1  |      or http://127.0.0.1:8888/?token=<token>
   - ※ ````<token>````の部分は各自の環境で異なります．ブックマークしておくと便利です．
 - 終了するには `Ctrl + C` で ````docker-compose```` を終了してください．
 - コンテナにログインして直接pythonやMeCab，CaboChaなどを実行したい場合は，別のコマンドプロンプト(Windows)またはConsole(Mac)を開き
-  ````% docker-compouse exec jupyterlab bash````
+  ````% docker-compose exec jupyterlab bash````
   を実行することで jupyterlab コンテナにログインすることができます．
   - 配布している ````docker-compose.yml```` では root でログインするようになっており sudo コマンドなど管理者権限が必要な操作も可能にしてあります．
   - pythonコマンドは /opt/conda/bin/python が実行されるように path が設定されています．/usr/bin/python は version 2.7 のままです．shebang (スクリプトファイルの先頭行)を書く際には気を付けてください．
